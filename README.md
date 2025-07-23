@@ -1,0 +1,1 @@
+Basic trading strategy that uses two moving averages to generate buy and sell signals for a stock.
