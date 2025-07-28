@@ -20,9 +20,9 @@ def download_and_save (ticker, start_date, end_date, filename):
         actions=False,      # Don't include dividends/splits
         group_by='ticker'   # This still avoids multi-level column structure
     )
-    # Ensure we only keep the useful part
+    # Checks if the DataFrame has a MultiIndex 
     if isinstance(data.columns, pd.MultiIndex):
-        # Flatten MultiIndex
+        # If true, flattens the column structure by taking only the second level of the MultiIndex
         data.columns = data.columns.get_level_values(1)
     data.to_csv(filename)
     print(f"Data saved to {filename}\n")
